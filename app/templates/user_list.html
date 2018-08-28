@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h3>Below is a list of all users on this website!</h3>
+    {% for user in users %}
+        <a href="{{ url_for('user', username=user.username) }}"><img src="{{ user.avatar(128) }}"></a><a href="{{ url_for('user', username=user.username) }}">{{ user.username }}</a><br>
+    {% endfor %}
+{% endblock %}
