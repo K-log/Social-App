@@ -15,8 +15,11 @@
             </td>
         </tr>
         <tr>
-            <td>
-                At: {{ post.timestamp }}
+            <td style="border-top: 1px solid #e5e5e5;">
+                Posted At: 
+            </td>
+            <td style="border-top: 1px solid #e5e5e5;">
+                {{ post.get_timestamp() }}
             </td>
         </tr>
     </table>

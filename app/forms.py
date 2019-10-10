@@ -39,6 +39,7 @@ class EditProfileForm(FlaskForm):
         if username.data != self.original_username:
             user = User.query.filter_by(username=self.username.data).first()
             if user is not None:
+                # duplicate username used
                 raise ValidationError('Please use a different username.')
 
 
@@ -47,6 +48,10 @@ class PostForm(FlaskForm):
     submit = SubmitField('Submit')
 
 """
+TODO: Decide how to handle post edits. 
+TODO: Either save the whole file for each version or 
+TODO: record the individual changes within the file.
+
 class EditPostForm(FlaskForm):
     username = StringField(get_post(), validators=[DataRequired()])
     submit = SubmitField('Submit')

@@ -1,3 +1,21 @@
-body {
-    background: #c4c4c4;
+.user-list {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.user-list-item {
+    display: flex;
+    flex-direction: column;
+    margin: 6px;
+    padding: 6px;
+    background-color: #e5e5e5;
+}
+
+.user-list-item a {
+    text-decoration: none;
+}
+
+.user-list-name {
+    text-align: center;
+    font-size: 1.4em;
 }

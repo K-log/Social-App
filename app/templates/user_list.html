@@ -2,13 +2,15 @@
 
 {% block content %}
     <h3>Below is a list of all users on this website!</h3>
+    <div class="user-list">
     {% for user in users %}
-      <div style="margin: 6px;">
-        <a href="{{ url_for('user', username=user.username) }}">
+      <div class="user-list-item">
+        <a class="user-list-icon" href="{{ url_for('user', username=user.username) }}">
             <img src="{{ user.avatar(128) }}">
         </a>
-        <a href="{{ url_for('user', username=user.username) }}">{{ user.username }}</a>
+        <a class="user-list-name" href="{{ url_for('user', username=user.username) }}">{{ user.username }}</a>
         <br>
       </div>
     {% endfor %}
+    </div>
 {% endblock %}

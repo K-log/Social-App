@@ -74,6 +74,9 @@ class Post(db.Model):
     def __repr__(self):
         return '<Post {}>'.format((self.title, self.body, self.subject_name))
 
+    def get_timestamp(self):
+        return self.timestamp.strftime("%Y-%m-%d %H:%M:%S")
+
 
 class PostEdit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
