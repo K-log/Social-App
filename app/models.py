@@ -13,7 +13,7 @@ FRIENDS = db.Table(
 
 
 class User(UserMixin, db.Model):
-    ```
+    """
         Primary Identifier: 
             id            (integer)
 
@@ -25,7 +25,7 @@ class User(UserMixin, db.Model):
         Connections:
             posts         (List of posts whose author_id == id)
             friends_list  (Join of all friends in FRIENDS whose friended_id == id)
-    ```
+    """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
     about_me = db.Column(db.String(140))
@@ -85,7 +85,7 @@ class User(UserMixin, db.Model):
 
 
 class Post(db.Model):
-        ```
+    """
         Primary Identifier: 
             id           (integer)
 
@@ -100,7 +100,7 @@ class Post(db.Model):
         
         Unused:
             subject_name (string)
-    ```
+    """
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), index=False, unique=False)
     body = db.Column(db.Text, index=False, unique=False)
@@ -119,7 +119,7 @@ class Post(db.Model):
 
 
 class PostEdit(db.Model):
-    ```
+    """
         Primary Identifier: 
             id           (integer)
 
@@ -134,7 +134,7 @@ class PostEdit(db.Model):
         
         Unused:
             subject_name (string)
-    ```
+    """
 
 
     id = db.Column(db.Integer, primary_key=True)

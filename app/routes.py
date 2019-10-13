@@ -119,20 +119,6 @@ def edit_profile():
 @app.route('/friend/<username>')
 @login_required
 def friend(username):
-    ```
-    Adds username as a friend of the current user.
-
-    Search the database for a user whose username matches the given username.
-    If found, add an entry to the FRIENDS table with the current user and found user.
-    If successful, redirect to the user's profile.
-    Otherwise, redirect to the site index.
-
-    Parameters:
-        username (string): a string identifying a user
-
-    returns:
-        A redirect to the username's profile page
-    ```
     user = User.query.filter_by(username=username).first()
     if user is None:
         flash('User {} not found.'.format(username))
@@ -160,6 +146,7 @@ def unfriend(username):
     db.session.commit()
     flash('You are not friends with {}.'.format(username))
     return redirect(url_for('user', username=username))
+
 
 """
 @app.route('/edit_post/<int:post_id', methods=['GET', 'POST'])
